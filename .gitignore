@@ -1,3 +1,30 @@
 node_modules
 # Keep environment variables out of version control
 .env
+Backend/.env
+
+# SQLite database (will use PostgreSQL on Render)
+Backend/dev.db
+
+# Uploads directory content (not the directory itself)
+Backend/uploads/*.pdf
+Backend/uploads/*.docx
+Backend/uploads/*.pptx
+Backend/uploads/temp/*
+
+# Build output
+Frontend/dist
+Frontend/build
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
