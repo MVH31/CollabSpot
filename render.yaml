@@ -1,10 +1,10 @@
 services:
-  # Backend API Service
+  # Backend API Service (Docker)
   - type: web
     name: collabspot-backend
-    env: node
-    buildCommand: cd Backend && npm install && npx prisma generate && npx prisma migrate deploy
-    startCommand: cd Backend && npm start
+    env: docker
+    dockerfilePath: ./Backend/Dockerfile
+    dockerContext: ./Backend
     envVars:
       - key: NODE_ENV
         value: production
@@ -12,15 +12,16 @@ services:
         fromDatabase:
           name: collabspot-db
           property: connectionString
+    healthCheckPath: /api/domains
 
-  # Frontend Static Site
+  # Frontend Service (Docker with Nginx)
   - type: web
     name: collabspot-frontend
-    env: static
-    buildCommand: cd Frontend && npm install && npm run build
-    staticPublishPath: ./Frontend/dist
+    env: docker
+    dockerfilePath: ./Frontend/Dockerfile
+    dockerContext: ./Frontend
     envVars:
-      - key: VITE_API_URL
+      - key: BACKEND_URL
         value: https://collabspot-backend.onrender.com
 
 # Database
