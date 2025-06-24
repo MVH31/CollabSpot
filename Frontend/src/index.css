@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --primary-color: #10b981;
+  --primary-light: #a7f3d0;
+  --primary-dark: #047857;
+  --secondary-color: #f5f5f5;
+  --text-color: #111827;
+  --danger-color: #ef4444;
+  --danger-light: #fecaca;
+  --danger-dark: #b91c1c;
+  --bg-creamy-green: #f0f5f1; /* Subtle creamy light green background */
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  background-color: var(--bg-creamy-green);
+}
+
+/* Add a CSS class for the background that we can use in components */
+.bg-creamy-green {
+  background-color: var(--bg-creamy-green);
+}
+
+.animate-scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.animate-scale:hover {
+  transform: scale(1.05);
+}
+
+.animate-scale:active {
+  transform: scale(0.95);
+}
+
+.btn-primary {
+  @apply bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded shadow-sm transition-all duration-300 ease-in-out;
+}
+
+.btn-secondary {
+  @apply bg-white border border-gray-300 hover:bg-gray-100 text-gray-800 font-medium py-2 px-4 rounded shadow-sm transition-all duration-300 ease-in-out;
+}
+
+.btn-danger {
+  @apply bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded shadow-sm transition-all duration-300 ease-in-out;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+}
